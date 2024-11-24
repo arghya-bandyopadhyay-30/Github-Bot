@@ -54,7 +54,7 @@ This script will:
 - **Version Control Simulation**: Test version control workflows by simulating a series of historical changes.
 
 ## License
-This project is licensed under the MIT License. See the LICENSE file for details.
+This project is licensed under the MIT License. See the [LICENSE](LICENSE) file for details.
 
 ## Contributing
 Contributions are welcome! If you have suggestions for improvements, please open an issue or submit a pull request.
