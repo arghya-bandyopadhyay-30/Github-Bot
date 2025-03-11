@@ -6,7 +6,7 @@ from git import Repo
 
 REPO_PATH = Path(__file__).resolve().parent.parent
 FILE_PATH = REPO_PATH / 'data.json'
-START_DATE = datetime(2024, 9, 4)
+START_DATE = datetime(2024, 12, 11)
 END_DATE = datetime.now()
 NUM_COMMITS = random.randint(5, (END_DATE - START_DATE).days)
 repo = Repo(REPO_PATH)
