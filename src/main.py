@@ -10,7 +10,6 @@ def commit_and_push_for_date(date):
 
     origin = repo.remote(name='origin')
     try:
-        origin.pull('main', rebase=True)
         origin.push(refspec='main')
         print("Changes pushed to the remote repository.")
     except Exception as e:
