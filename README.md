@@ -1,63 +1,137 @@
-# Automated Historical Commit Project
+# 🕓 Automated Historical Commit Project
 
-This project is designed to create a series of historical commits with random timestamps to simulate a realistic commit history. It allows developers to add custom commits to a Git repository for a specific range of dates, effectively enhancing the repository's commit history for demonstration or learning purposes.
+This project simulates a realistic Git commit history by generating backdated commits with randomized timestamps. It's ideal for developers who want to enhance the visual contribution graph, demo workflows, or experiment with Git automation.
 
-## Features
-- **Randomized Date Commits**: Generate and commit historical data with random dates between a specified start and end period.
-- **Custom Timestamps**: Each commit includes a custom timestamp to make the history look more realistic.
-- **Automated Pull and Push**: Automatically pull the latest changes and push new commits individually to the remote repository.
-- **Error Handling**: Includes retries for push failures to mitigate conflicts or network issues.
-- **Rebase Before Push**: Rebase changes before each push to ensure local changes are in sync with the remote repository.
-- **Detailed Logging**: Logs each step for better traceability and debugging.
+---
 
-## How to Use
+## 🚀 Features
 
-### Prerequisites
-- Python 3.x
-- GitPython library
-- A Git repository to work with
+* ✅ **Randomized Historical Commits**
+  Generates a series of Git commits on random dates between a given start date and today.
 
-### Installation
-1. Clone this repository:
-   ```sh
+* 🕰️ **Custom Commit Timestamps**
+  Each commit uses a custom `author_date` and `commit_date` to appear historically accurate.
+
+* 🔄 **Push to Remote**
+  Automatically commits and pushes to the `main` branch.
+
+* 🛡️ **Safe and Controlled**
+  Clean error handling and optional customization of start date.
+
+---
+
+## 📆 Setup
+
+### ✅ Prerequisites
+
+* Python 3.7+
+* Git installed and configured
+* [`GitPython`](https://gitpython.readthedocs.io/) library
+
+### 🛠️ Installation
+
+1. Clone the repository:
+
+   ```bash
    git clone https://github.com/arghya-bandyopadhyay-30/github-bot.git
+   cd github-bot
    ```
 
-2. Install the required dependencies:
-   ```sh
+2. Create and activate a virtual environment (optional but recommended):
+
+   ```bash
+   python3 -m venv venv
+   source venv/bin/activate  # For Windows: venv\Scripts\activate
+   ```
+
+3. Install dependencies:
+
+   ```bash
    pip install -r requirements.txt
    ```
 
-### Configuration
-- Set up your Git credentials using SSH for easier authentication.
-- Update the repository path and file path in the script as needed.
+---
 
-### Running the Script
-To run the script and create historical commits:
+## ⚙️ Usage
 
-```sh
+To generate and push commits:
+
+```bash
 python src/main.py
 ```
+By default, this generates random commits starting from **January 1, 2025**.
 
-This script will:
-- Generate random dates within a given range.
-- Write those dates to a JSON file (`data.json`).
-- Commit the changes with the specified timestamp and push to the remote repository.
+You can also specify a custom start date for commit generation:
 
-## Important Notes
-- **Security Warning**: Do not embed sensitive information directly in scripts or URLs for security reasons. Use Git credential helper or SSH instead.
-- **Network and Permission Issues**: Ensure you have the appropriate permissions for the repository.
+```bash
+python src/main.py --start-date 2025-01-01
+```
 
-## Example Use Cases
-- **Demo Repositories**: Create demo repositories with realistic commit histories for presentations or tutorials.
-- **Learning**: Practice working with Git, particularly with historical commits, rebasing, and error handling.
-- **Version Control Simulation**: Test version control workflows by simulating a series of historical changes.
+This will:
 
-## License
-This project is licensed under the MIT License. See the [LICENSE](LICENSE) file for details.
+* Generate N random dates between `--start-date` and today.
+* Create a commit for each with a custom timestamp.
+* Push all commits to the remote `main` branch.
 
-## Contributing
-Contributions are welcome! If you have suggestions for improvements, please open an issue or submit a pull request.
+---
 
-## Contact
-For any questions or feedback, please reach out via GitHub issues.
+## 📝 Configuration
+
+| Parameter      | Description                                            | Default      |
+| -------------- | ------------------------------------------------------ | ------------ |
+| `--start-date` | (Optional) ISO format date to begin historical commits | `2025-1-04` |
+
+> **Note:** All commits are made to the branch `main`. Ensure your repo uses this as the default or adjust accordingly.
+
+---
+
+## 🔐 Authentication
+
+* For private repositories, ensure you're authenticated using:
+
+  * SSH (recommended)
+  * GitHub CLI (`gh auth login`)
+  * Git Credential Helper
+
+Avoid using raw tokens or embedding secrets in URLs.
+
+---
+
+## 💡 Example Use Cases
+
+* 🧪 **Git Practice**: Simulate version control workflows.
+* 🎓 **Learning**: Understand Git commit internals like `author_date`.
+* 📊 **Demo Repos**: Enhance the GitHub contribution graph for presentation.
+* 🛠️ **Dev Tooling**: Test CI/CD behavior against backdated commits.
+
+---
+
+## ⚠️ Warnings
+
+* **Avoid Abuse**: Do not use this to falsify contributions for unethical purposes.
+* **Use With Caution**: This tool rewrites commit timestamps and could alter commit history if misused.
+
+---
+
+## 👥 Contributing
+
+Contributions are welcome!
+To propose improvements:
+
+* Open an [Issue](https://github.com/arghya-bandyopadhyay-30/github-bot/issues)
+* Submit a Pull Request
+
+---
+
+## 📄 License
+
+MIT License.
+See [LICENSE](LICENSE) for details.
+
+---
+
+## 📬 Contact
+
+For support or questions, raise an issue on GitHub.
+
+---
