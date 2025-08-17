@@ -8,7 +8,6 @@ import uuid
 REPO_PATH = Path(__file__).resolve().parent.parent
 FILE_PATH = REPO_PATH / 'data.json'
 END_DATE = datetime.now()
-NUM_COMMITS = random.randint(5, (END_DATE - datetime(2024, 12, 4)).days)
 repo = Repo(REPO_PATH)
 COMMIT_MESSAGE = """Updated data.json with timestamp: {formatted_date}"""
 

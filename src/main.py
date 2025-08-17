@@ -2,13 +2,13 @@ import argparse
 from datetime import datetime
 from src.utils import (
     END_DATE,
-    NUM_COMMITS,
     FILE_PATH,
     repo,
     COMMIT_MESSAGE,
     write_json,
     generate_random_dates
 )
+import random
 
 DEFAULT_START_DATE = datetime(2025, 1, 1)
 
@@ -36,13 +36,13 @@ def commit_and_push_for_date(date):
 def run(start_date: str = None):
     try:
         start = datetime.fromisoformat(start_date) if start_date else DEFAULT_START_DATE
+        NUM_COMMITS = random.randint(5, (END_DATE - start).days)
         commit_dates = generate_random_dates(start, END_DATE, NUM_COMMITS)
         for date in commit_dates:
             commit_and_push_for_date(date)
+            print("All selected dates have been processed and pushed.")
     except Exception as e:
         print(f"Error during commit workflow: {e}")
-
-    print("All selected dates have been processed and pushed.")
 
 
 if __name__ == "__main__":
